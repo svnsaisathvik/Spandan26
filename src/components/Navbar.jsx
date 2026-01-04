@@ -67,7 +67,7 @@ const Navbar = () => {
 
           <div className="flex items-center gap-4">
             <img
-              src="/public/images/IIITB_Logo.png"
+              src="/images/IIITB_Logo.png"
               alt="IIITB Logo"
               className="h-16 w-auto transition-transform hover:scale-110"
               style={{ maxHeight: '64px', aspectRatio: 'auto 4/3' }}
