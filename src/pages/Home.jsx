@@ -235,11 +235,13 @@ const Home = () => {
                 <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 card-3d-hover border-2 border-gray-700 hover:border-yellow-400 transition-all flex flex-col items-center justify-center h-full relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/0 to-orange-500/0 group-hover:from-yellow-400/10 group-hover:to-orange-500/10 transition-all"></div>
                   <div className="relative z-10">
-                    <img
-                      src={sport.image}
-                      alt={sport.name}
-                      className="w-16 h-16 mb-4 mx-auto object-contain rounded-lg bg-white/10 p-2"
-                    />
+                    <div className="w-20 h-20 mb-4 mx-auto rounded-lg overflow-hidden bg-white/5 flex items-center justify-center">
+                      <img
+                        src={sport.gif_image}
+                        alt={sport.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                     <h3 className="font-black text-center text-white text-lg group-hover:text-yellow-400 transition-colors">
                       {sport.name.toUpperCase()}
                     </h3>

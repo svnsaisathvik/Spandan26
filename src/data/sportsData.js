@@ -13,6 +13,7 @@ export const sportsData = [
     ],
     teamSize: '11 players',
     format: 'League + Knockout',
+    gif_image: 'images/Gifs/Cricket.gif',
     registerLink: 'https://forms.google.com/cricket'
   },
   {
@@ -29,6 +30,7 @@ export const sportsData = [
     ],
     teamSize: '7 players',
     format: 'Knockout',
+    gif_image: 'images/Gifs/Football.gif',
     registerLink: 'https://forms.google.com/football'
   },
   {
@@ -45,6 +47,7 @@ export const sportsData = [
     ],
     teamSize: '5 players',
     format: 'League + Knockout',
+    gif_image: 'images/Gifs/Basketball.gif',
     registerLink: 'https://forms.google.com/basketball'
   },
   {
@@ -61,6 +64,7 @@ export const sportsData = [
     ],
     teamSize: '6 players',
     format: 'League + Knockout',
+    gif_image: 'images/Gifs/Volleyball.gif',
     registerLink: 'https://forms.google.com/volleyball'
   },
   {
@@ -77,6 +81,7 @@ export const sportsData = [
     ],
     teamSize: 'Singles or Doubles',
     format: 'Knockout',
+    gif_image: 'images/Gifs/Badminton.gif',
     registerLink: 'https://forms.google.com/badminton'
   },
   {
@@ -93,6 +98,7 @@ export const sportsData = [
     ],
     teamSize: 'Singles or Doubles',
     format: 'Knockout',
+    gif_image: 'images/Gifs/TableTennis.gif',
     registerLink: 'https://forms.google.com/tabletennis'
   },
   {
