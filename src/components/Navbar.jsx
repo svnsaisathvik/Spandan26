@@ -69,7 +69,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div className="flex items-center gap-4">
+          {/* <div className="flex items-center gap-4">
             <img
               src="/images/IIITB_Logo.png"
               alt="IIITB Logo"
@@ -82,7 +82,7 @@ const Navbar = () => {
             >
               {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 
