@@ -2,6 +2,7 @@ export const sportsData = [
   {
     id: 'cricket',
     name: 'Cricket',
+    category: 'major',
     image: 'images/IIITB_Logo.png',
     description: 'Experience the thrill of cricket in our action-packed tournament. Showcase your batting, bowling, and fielding skills.',
     rules: [
@@ -19,6 +20,7 @@ export const sportsData = [
   {
     id: 'football',
     name: 'Football',
+    category: 'major',
     image: 'images/IIITB_Logo.png',
     description: 'Join the ultimate football championship. Display your teamwork, strategy, and scoring abilities on the field.',
     rules: [
@@ -36,6 +38,7 @@ export const sportsData = [
   {
     id: 'basketball',
     name: 'Basketball',
+    category: 'major',
     image: 'images/IIITB_Logo.png',
     description: 'Fast-paced basketball action awaits! Show off your dribbling, shooting, and defensive skills.',
     rules: [
@@ -53,6 +56,7 @@ export const sportsData = [
   {
     id: 'volleyball',
     name: 'Volleyball',
+    category: 'major',
     image: 'images/IIITB_Logo.png',
     description: 'Compete in exciting volleyball matches. Perfect your spikes, serves, and blocks.',
     rules: [
@@ -70,6 +74,7 @@ export const sportsData = [
   {
     id: 'badminton',
     name: 'Badminton',
+    category: 'minor',
     image: 'images/IIITB_Logo.png',
     description: 'Individual and doubles badminton tournaments. Test your agility, precision, and stamina.',
     rules: [
@@ -87,6 +92,7 @@ export const sportsData = [
   {
     id: 'table-tennis',
     name: 'Table Tennis',
+    category: 'minor',
     image: 'images/IIITB_Logo.png',
     description: 'Fast reflexes meet strategy in our table tennis championship.',
     rules: [
@@ -104,6 +110,7 @@ export const sportsData = [
   {
     id: 'athletics',
     name: 'Athletics',
+    category: 'minor',
     image: 'images/IIITB_Logo.png',
     description: 'Track and field events including sprints, relays, and long jump. Push your limits!',
     rules: [
@@ -122,6 +129,7 @@ export const sportsData = [
   {
     id: 'chess',
     name: 'Chess',
+    category: 'esports',
     image: 'images/IIITB_Logo.png',
     description: 'Battle of minds! Compete in our chess tournament and prove your strategic prowess.',
     rules: [

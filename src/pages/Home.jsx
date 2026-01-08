@@ -1,12 +1,15 @@
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Mail, Phone, Calendar, Trophy, Users, Target, Award, Flame, Star } from 'lucide-react';
 import { sportsData } from '../data/sportsData';
-import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
-  const navigate = useNavigate();
+
+const App = () => {
   const [particles, setParticles] = useState([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const eventDate = new Date('2026-01-23T00:00:00');
+  const navigate = useNavigate();
+  const featuredSports = sportsData.slice(0, 6);
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -14,7 +17,29 @@ const Home = () => {
     minutes: 0,
     seconds: 0,
   });
-  const featuredSports = sportsData.slice(0, 6);
+
+  const glimpseImages = [
+    '/images/spandan/glimpse-1.jpg',
+    '/images/spandan/glimpse-2.jpg',
+    '/images/spandan/glimpse-3.jpg',
+    '/images/spandan/glimpse-4.jpg',
+    '/images/spandan/glimpse-5.jpg',
+    '/images/spandan/glimpse-6.jpg',
+    '/images/spandan/glimpse-7.jpg',
+    '/images/spandan/glimpse-8.jpg',
+    '/images/spandan/glimpse-9.jpg',
+    '/images/spandan/glimpse-10.jpg',
+    '/images/spandan/glimpse-11.jpg',
+    '/images/spandan/glimpse-12.jpg',
+    '/images/spandan/glimpse-13.jpg',
+    '/images/spandan/glimpse-14.jpg',
+    '/images/spandan/glimpse-15.jpg',
+    '/images/spandan/glimpse-16.jpg',
+    '/images/spandan/glimpse-17.jpg',
+    '/images/spandan/glimpse-18.jpg',
+    '/images/spandan/glimpse-19.jpg',
+    '/images/spandan/glimpse-20.jpg',
+  ];
 
   useEffect(() => {
     const particleCount = 30;
@@ -48,9 +73,21 @@ const Home = () => {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % glimpseImages.length);
+    }, 4000);
+
+    return () => clearInterval(slideTimer);
+  }, []);
+
+  const goToSlide = (index) => {
+    setCurrentImageIndex(index);
+  };
+
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-black text-white min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-900 via-blue-900 to-black text-white min-h-screen flex items-center justify-center overflow-hidden pb-24 sm:pb-32 md:pb-0">
         <div className="particle-bg">
           {particles.map((particle) => (
             <div
@@ -73,20 +110,18 @@ const Home = () => {
           <div className="absolute bottom-20 right-1/3 w-44 h-44 bg-green-500 rounded-full opacity-20 blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
         </div>
 
-        <div className="relative z-10 w-full px-4 max-w-7xl mx-auto">
+        <div className="relative z-10 w-full px-4 max-w-7xl mx-auto pt-24 sm:pt-28 md:pt-0">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Logo - Shows on top for mobile, right for desktop */}
-            <div className="flex items-center justify-center md:order-2">
+            <div className="flex items-center justify-center md:order-2 mt-6 sm:mt-10 md:mt-0">
               <div className="animate-float">
-                <img 
-                  src="/images/Spandan_logo.svg" 
-                  alt="Spandan Logo" 
+                <img
+                  src="/images/Spandan_logo.svg"
+                  alt="Spandan Logo"
                   className="w-full max-w-md md:max-w-lg drop-shadow-2xl"
                 />
               </div>
             </div>
 
-            {/* Main Content - Shows below logo on mobile, left on desktop */}
             <div className="text-center md:text-left md:order-1">
               <div className="mb-6 md:mb-8 flex justify-center md:justify-start gap-3 md:gap-4">
                 <Trophy className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-yellow-400 animate-bounce-slow" />
@@ -154,100 +189,134 @@ const Home = () => {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 md:mb-4 bg-gradient-to-r from-blue-600 via-red-600 to-yellow-600 bg-clip-text text-transparent px-2">
-              THE OLYMPIC VALUES
+              ABOUT SPANDAN
             </h2>
             <div className="w-24 sm:w-28 md:w-32 h-1 bg-gradient-to-r from-blue-500 via-red-500 to-yellow-500 mx-auto"></div>
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12 perspective-1000">
-            <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl md:rounded-3xl p-6 md:p-8 card-3d-hover shadow-xl border-2 border-yellow-200">
-              <div className="flex justify-center mb-4 md:mb-6">
-                <div className="olympic-gold p-4 md:p-6 rounded-full shadow-2xl animate-float">
-                  <Trophy className="w-12 h-12 md:w-16 md:h-16 text-gray-900" />
-                </div>
-              </div>
-              <h3 className="text-xl md:text-2xl font-black mb-3 md:mb-4 text-center text-gray-800">EXCELLENCE</h3>
-              <p className="text-sm md:text-base text-gray-700 text-center leading-relaxed">
-                Strive for greatness and push beyond limits. Showcase your elite athletic prowess on the grand stage.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl md:rounded-3xl p-6 md:p-8 card-3d-hover shadow-xl border-2 border-gray-300">
-              <div className="flex justify-center mb-4 md:mb-6">
-                <div className="olympic-silver p-4 md:p-6 rounded-full shadow-2xl animate-float" style={{ animationDelay: '1s' }}>
-                  <Users className="w-12 h-12 md:w-16 md:h-16 text-gray-800" />
-                </div>
-              </div>
-              <h3 className="text-xl md:text-2xl font-black mb-3 md:mb-4 text-center text-gray-800">TEAMWORK</h3>
-              <p className="text-sm md:text-base text-gray-700 text-center leading-relaxed">
-                Unite as one force. Build unbreakable bonds and forge legendary partnerships through sport.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl md:rounded-3xl p-6 md:p-8 card-3d-hover shadow-xl border-2 border-orange-200 sm:col-span-2 md:col-span-1">
-              <div className="flex justify-center mb-4 md:mb-6">
-                <div className="olympic-bronze p-4 md:p-6 rounded-full shadow-2xl animate-float" style={{ animationDelay: '2s' }}>
-                  <Target className="w-12 h-12 md:w-16 md:h-16 text-gray-900" />
-                </div>
-              </div>
-              <h3 className="text-xl md:text-2xl font-black mb-3 md:mb-4 text-center text-gray-800">SPIRIT</h3>
-              <p className="text-sm md:text-base text-gray-700 text-center leading-relaxed">
-                Honor the game with integrity. Celebrate fair play, respect, and the pure joy of competition.
-              </p>
-            </div>
+          <div className="glass-morphism rounded-2xl md:rounded-3xl p-8 md:p-12 backdrop-blur-xl border-2 border-white/30 shadow-2xl mb-16 md:mb-20">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-800 text-center max-w-5xl mx-auto leading-relaxed font-semibold mb-6">
+              SPANDAN is IIIT Bangalore's premier annual sports championship, where the spirit of competition meets excellence.
+              A celebration of athletic prowess, teamwork, and sportsmanship that brings together the brightest minds and finest athletes.
+            </p>
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 text-center max-w-4xl mx-auto leading-relaxed">
+              Since its inception, SPANDAN has been the ultimate platform for showcasing talent across diverse sporting disciplines.
+              From thrilling football matches to intense badminton rallies, from strategic chess battles to energetic dance performances,
+              SPANDAN embodies the complete sporting experience. It's where future leaders forge unbreakable bonds,
+              where champions are born, and where every moment becomes a memory worth cherishing.
+            </p>
           </div>
 
-          <div className="glass-morphism rounded-2xl md:rounded-3xl p-6 md:p-8 backdrop-blur-xl border-2 border-white/30 shadow-2xl">
-            <p className="text-base sm:text-lg md:text-xl text-gray-800 text-center max-w-4xl mx-auto leading-relaxed font-semibold">
-              SPANDAN is IIIT Bangalore's premier championship where future legends emerge.
-              Experience world-class competition across elite sporting disciplines.
-              This is where champions are forged and history is written.
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 md:mb-4 bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 bg-clip-text text-transparent px-2">
+              GLIMPSES OF SPANDAN
+            </h2>
+            <div className="w-24 sm:w-28 md:w-32 h-1 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 mx-auto mb-4"></div>
+            <p className="text-base sm:text-lg md:text-xl text-gray-700">
+              Relive the unforgettable moments and legendary victories
             </p>
+          </div>
+
+          <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative h-64 sm:h-80 md:h-96 lg:h-[32rem] w-full overflow-hidden bg-gray-900">
+              {glimpseImages.map((image, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${
+                    index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <img
+                    src={image}
+                    alt={`Spandan Glimpse ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                </div>
+              ))}
+            </div>
+
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+              {glimpseImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentImageIndex
+                      ? 'bg-yellow-400 w-8'
+                      : 'bg-white/50 hover:bg-white/80'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={() => goToSlide((currentImageIndex - 1 + glimpseImages.length) % glimpseImages.length)}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full p-2 sm:p-3 transition-all"
+              aria-label="Previous slide"
+            >
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            <button
+              onClick={() => goToSlide((currentImageIndex + 1) % glimpseImages.length)}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full p-2 sm:p-3 transition-all"
+              aria-label="Next slide"
+            >
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         </div>
       </section>
-
       <section className="py-16 sm:py-20 md:py-24 px-4 bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 bg-blue-600 rounded-full opacity-10 blur-3xl animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 bg-yellow-600 rounded-full opacity-10 blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-600 rounded-full opacity-10 blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-yellow-600 rounded-full opacity-10 blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-12 md:mb-16">
-            <Award className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 mx-auto mb-4 md:mb-6 text-yellow-400 animate-bounce-slow" />
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 md:mb-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent px-2">
+            <Award className="w-16 h-16 mx-auto mb-6 text-yellow-400 animate-bounce-slow" />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
               CHAMPIONSHIP DISCIPLINES
             </h2>
-            <div className="w-24 sm:w-28 md:w-32 h-1 bg-gradient-to-r from-yellow-400 to-red-500 mx-auto mb-4 md:mb-6"></div>
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 px-4">
+            <div className="w-32 h-1 bg-gradient-to-r from-yellow-400 to-red-500 mx-auto mb-4"></div>
+            <p className="text-base sm:text-lg md:text-xl text-gray-300">
               Select your battlefield and claim your victory
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 md:gap-6 perspective-1000 mb-12 md:mb-16">
-            {featuredSports.map((sport, index) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 mb-12">
+            {featuredSports.map((sport) => (
               <div
                 key={sport.id}
                 onClick={() => navigate('/sports')}
                 className="group cursor-pointer"
               >
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 card-3d-hover border-2 border-gray-700 hover:border-yellow-400 transition-all flex flex-col items-center justify-center h-full relative overflow-hidden">
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-4 md:p-6 border-2 border-gray-700 hover:border-yellow-400 transition-all shadow-xl relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/0 to-orange-500/0 group-hover:from-yellow-400/10 group-hover:to-orange-500/10 transition-all"></div>
+
                   <div className="relative z-10">
-                    <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 mb-3 md:mb-4 mx-auto rounded-lg overflow-hidden bg-white/5 flex items-center justify-center">
+                    <div className="w-16 h-16 md:w-20 md:h-20 mx-auto mb-4 rounded-lg overflow-hidden bg-white/5 flex items-center justify-center">
                       <img
                         src={sport.gif_image}
                         alt={sport.name}
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <h3 className="font-black text-center text-white text-sm sm:text-base md:text-lg group-hover:text-yellow-400 transition-colors">
+
+                    <h3 className="text-sm sm:text-base md:text-lg font-black text-center text-white group-hover:text-yellow-400 transition-colors">
                       {sport.name.toUpperCase()}
                     </h3>
                   </div>
-                  <div className="absolute top-2 right-2">
-                    <Star className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Star className="w-4 h-4 text-yellow-400" />
                   </div>
                 </div>
               </div>
@@ -257,16 +326,16 @@ const Home = () => {
           <div className="text-center">
             <button
               onClick={() => navigate('/sports')}
-              className="olympic-gold text-gray-900 px-6 sm:px-8 md:px-12 py-3 md:py-4 rounded-full text-base sm:text-lg md:text-xl font-black hover:scale-110 transition-all transform shadow-2xl neon-glow inline-flex items-center gap-2 md:gap-3"
+              className="olympic-gold text-gray-900 px-8 md:px-12 py-4 rounded-full text-lg md:text-xl font-black hover:scale-110 transition-all shadow-2xl inline-flex items-center gap-3"
             >
-              <Trophy className="w-5 h-5 md:w-6 md:h-6" />
-              <span className="hidden sm:inline">VIEW ALL CHAMPIONSHIPS</span>
-              <span className="sm:hidden">VIEW ALL</span>
-              <Trophy className="w-5 h-5 md:w-6 md:h-6" />
+              <Trophy className="w-6 h-6" />
+              VIEW ALL CHAMPIONSHIPS
+              <Trophy className="w-6 h-6" />
             </button>
           </div>
         </div>
       </section>
+
 
       <section id="contact" className="py-16 sm:py-20 md:py-24 px-4 bg-gradient-to-b from-gray-900 via-blue-950 to-black text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
@@ -291,8 +360,26 @@ const Home = () => {
                     <Phone className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-bold text-base md:text-lg text-white">Sports Secretary</p>
-                    <p className="text-sm md:text-base text-gray-300">+91 98765 43210</p>
+                    <p className="font-bold text-base md:text-lg text-white">Prabhas</p>
+                    <p className="text-sm md:text-base text-gray-300">+91 9494676848</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 md:gap-4 group">
+                  <div className="p-2 md:p-3 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
+                    <Phone className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-base md:text-lg text-white">Bharat</p>
+                    <p className="text-sm md:text-base text-gray-300">+91 8824119467</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 md:gap-4 group">
+                  <div className="p-2 md:p-3 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full shadow-lg group-hover:scale-110 transition-transform flex-shrink-0">
+                    <Phone className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-base md:text-lg text-white">Tarun</p>
+                    <p className="text-sm md:text-base text-gray-300">+91 8147691596</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 md:gap-4 group">
@@ -301,7 +388,7 @@ const Home = () => {
                   </div>
                   <div>
                     <p className="font-bold text-base md:text-lg text-white">Email</p>
-                    <p className="text-sm md:text-base text-gray-300 break-all">sports@iiitb.ac.in</p>
+                    <p className="text-sm md:text-base text-gray-300 break-all">sportscomm@iiitb.ac.in</p>
                   </div>
                 </div>
               </div>
@@ -315,7 +402,7 @@ const Home = () => {
                     <Calendar className="w-4 h-4 md:w-5 md:h-5" />
                     DATES
                   </p>
-                  <p className="text-white text-lg sm:text-xl font-bold">March 15-20, 2026</p>
+                  <p className="text-white text-lg sm:text-xl font-bold">January 23-25, 2026</p>
                 </div>
                 <div className="group">
                   <p className="font-black text-base md:text-lg text-blue-400 mb-2 flex items-center gap-2">
@@ -348,4 +435,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default App;
