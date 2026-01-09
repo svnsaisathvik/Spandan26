@@ -6,7 +6,7 @@ export const teamData = {
       id: 1,
       name: 'Bharat Kumar',
       role: 'Sports Secretary',
-      contact: '+91 8824119467',
+      contact: '8824119467',
       email: 'Bharat.Kumar@iiitb.ac.in',
       photo: '/images/Team/Bharat Kumar.JPG',
       instagram: 'https://instagram.com/bharatkumar_dd'
@@ -15,7 +15,7 @@ export const teamData = {
       id: 2,
       name: 'Tarun R S',
       role: 'Vice Sports Secretary',
-      contact: '+91 8147691596',
+      contact: '8147691596',
       email: 'RS.Tarun@iiitb.ac.in',
       photo: '/images/Team/Tarun.jpeg',
       instagram: 'https://instagram.com/tarun_rs05'
@@ -24,7 +24,7 @@ export const teamData = {
       id: 3,
       name: 'Utkarsh Goyal',
       role: 'Events & Operations Head',
-      contact: '+91 9063257938',
+      contact: '9063257938',
       email: 'utkarsh.goyal@iiitb.ac.in',
       photo: '/images/Team/Utkarsh.jpg',
       instagram: 'https://instagram.com/utkarshgoyal24'
@@ -33,7 +33,7 @@ export const teamData = {
       id: 4,
       name: 'Mithilesh Sai Yechuri',
       role: 'Logistics & Ground Management',
-      contact: '+91 9591544183',
+      contact: '9591544183',
       email: 'mithilesh.sai@iiitb.ac.in',
       photo: '/images/Team/Mithilesh.jpeg',
       instagram: 'https://instagram.com/mithileshyechurii'
@@ -42,7 +42,7 @@ export const teamData = {
       id: 5,
       name: 'Thapan',
       role: 'Registrations & Coordination',
-      contact: '+91 8074196703',
+      contact: '8074196703',
       email: 'thapankomaravelly@iiitb.ac.in',
       photo: '/images/Team/thapan.jpg',
       instagram: 'https://instagram.com/thapan212'
@@ -51,7 +51,7 @@ export const teamData = {
       id: 6,
       name: 'Kirti Nigam',
       role: 'Public Relations & Outreach',
-      contact: '+91 9743571374',
+      contact: '9743571374',
       email: 'kirti.nigam@iiitb.ac.in',
       photo: '/images/Team/Kirti Nigam.jpeg',
       instagram: 'https://instagram.com/kirti_nigam_'
@@ -60,7 +60,7 @@ export const teamData = {
       id: 7,
       name: 'Vini Singh Rajput',
       role: 'Media & Design',
-      contact: '+91 8287666133',
+      contact: '8287666133',
       email: 'vini.rajput@iiitb.ac.in',
       photo: '/images/Team/Vinnie.jpeg',
       instagram: 'https://instagram.com/vinisingh_'
@@ -71,9 +71,9 @@ export const teamData = {
       id: 13,
       name: 'SVN Sai Sathvik',
       role: 'Sports Secretary',
-      contact: '+91 98765 43210',
-      email: 'sports@iiitb.ac.in',
-      photo: '/images/Team/sathvik.jpg',
+      contact: '7416226695',
+      email: 'SVN.Sathvik@iiitb.ac.in',
+      photo: '/images/Team/Sathvik.jpeg',
       instagram: 'https://instagram.com/svnsaisathvik'
     }
   ]

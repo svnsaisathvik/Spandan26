@@ -41,6 +41,8 @@ const App = () => {
     '/images/spandan/glimpse-20.jpg',
   ];
 
+  const [imagesLoaded, setImagesLoaded] = useState({});
+
   useEffect(() => {
     const particleCount = 30;
     const newParticles = Array.from({ length: particleCount }, (_, i) => ({
@@ -243,12 +245,22 @@ const App = () => {
           {[...glimpseImages.slice(0, 10), ...glimpseImages.slice(0, 10)].map((image, index) => (
             <div
               key={`row1-${index}`}
-              className="group relative flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-xl md:rounded-2xl overflow-hidden shadow-xl cursor-pointer"
+              className="group relative flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-xl md:rounded-2xl overflow-hidden shadow-xl cursor-pointer bg-gray-800"
             >
+              {!imagesLoaded[`row1-${index}`] && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              )}
               <img
                 src={image}
                 alt={`Spandan Glimpse ${index + 1}`}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 ease-out"
+                loading="lazy"
+                onLoad={() => setImagesLoaded(prev => ({ ...prev, [`row1-${index}`]: true }))}
+                className={`w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 ease-out ${
+                  imagesLoaded[`row1-${index}`] ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{ transition: 'opacity 0.3s ease-in-out, transform 0.5s ease-out' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
             </div>
@@ -260,12 +272,22 @@ const App = () => {
           {[...glimpseImages.slice(10, 20), ...glimpseImages.slice(10, 20)].map((image, index) => (
             <div
               key={`row2-${index}`}
-              className="group relative flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-xl md:rounded-2xl overflow-hidden shadow-xl cursor-pointer"
+              className="group relative flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-xl md:rounded-2xl overflow-hidden shadow-xl cursor-pointer bg-gray-800"
             >
+              {!imagesLoaded[`row2-${index}`] && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-12 h-12 border-4 border-yellow-500 border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              )}
               <img
                 src={image}
                 alt={`Spandan Glimpse ${index + 11}`}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 ease-out"
+                loading="lazy"
+                onLoad={() => setImagesLoaded(prev => ({ ...prev, [`row2-${index}`]: true }))}
+                className={`w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 ease-out ${
+                  imagesLoaded[`row2-${index}`] ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{ transition: 'opacity 0.3s ease-in-out, transform 0.5s ease-out' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
             </div>
@@ -313,6 +335,7 @@ const App = () => {
                         src={sport.gif_image}
                         alt={sport.name}
                         className="w-full h-full object-cover"
+                        loading="lazy"
                       />
                     </div>
 
