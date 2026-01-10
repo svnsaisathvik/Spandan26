@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { ExternalLink, Users, Trophy, Medal, Flame, Star, Target, ChevronRight } from 'lucide-react';
+import { ExternalLink, Users, Trophy, Medal, Flame, Star, Target, ChevronRight, Search } from 'lucide-react';
 import { sportsData } from '../data/sportsData';
 
 const Sports = () => {
   const [selectedCategory, setSelectedCategory] = useState('major');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const categories = [
     { id: 'major', name: 'Major Sports', icon: Trophy },
@@ -22,7 +23,12 @@ const Sports = () => {
     'from-cyan-400 to-cyan-600',
   ];
 
-  const filteredSports = sportsData.filter(sport => sport.category === selectedCategory);
+  const filteredSports = sportsData.filter(sport => {
+    const matchesCategory = sport.category === selectedCategory;
+    const matchesSearch = sport.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         sport.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-gray-900">
@@ -92,7 +98,32 @@ const Sports = () => {
                 })}
               </nav>
 
-              <div className="mt-8 pt-6 border-t border-gray-700">
+              {/* Premium Search Bar */}
+              <div className="mt-8 pt-8 border-t border-gray-700">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-2xl opacity-75 blur-lg group-hover:opacity-100 transition-opacity"></div>
+                  <div className="relative">
+                    <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cyan-400 z-10" />
+                    <input
+                      type="text"
+                      placeholder="Search events..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full pl-14 pr-12 py-4 bg-gray-900/90 backdrop-blur-sm text-white text-base rounded-2xl border-2 border-cyan-500/50 focus:border-cyan-400 focus:outline-none transition-all placeholder-gray-400 font-semibold shadow-lg"
+                    />
+                    {searchQuery && (
+                      <button
+                        onClick={() => setSearchQuery('')}
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500 hover:text-white transition-all font-bold text-sm"
+                      >
+                        ✕
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-6 border-t border-gray-700">
                 <p className="text-base text-gray-400 text-center">
                   Total Events: <span className="text-cyan-400 font-black text-lg">{filteredSports.length}</span>
                 </p>
