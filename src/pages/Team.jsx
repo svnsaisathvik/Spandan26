@@ -124,7 +124,10 @@ const Team = () => {
                             <div className="p-2 bg-blue-500 rounded-lg">
                               <Phone className="w-4 h-4 text-white" />
                             </div>
-                            <span className="text-gray-300 font-semibold">{member.contact}</span>
+                            <span className="text-gray-300 font-semibold break-all">
+                              {member.contact}
+                            </span>
+
                           </div>
                             <div className="glass-morphism rounded-lg p-4 flex items-center gap-4">
                               <div className="p-2 bg-orange-500 rounded-lg">
