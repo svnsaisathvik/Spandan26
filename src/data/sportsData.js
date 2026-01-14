@@ -338,7 +338,7 @@ export const sportsData = [
       'No external mods',
       'Organizer rules apply'
     ],
-    teamSize: 'Team of 3',
+    teamSize: '3 players',
     spocDetails: 'Revanth : 9059219192',
     format: 'League',
     registrations: [
