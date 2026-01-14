@@ -273,7 +273,7 @@ const App = () => {
           {/* Animated Glimpses Title */}
           <div className="text-center mb-10 md:mb-14">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 md:mb-4 bg-gradient-to-r from-blue-600 via-red-600 to-yellow-600 bg-clip-text text-transparent px-2">
-              GLIMPSES OF GLORY
+              GLIMPSES OF SPANDAN
             </h2>
             <div className="w-24 sm:w-28 md:w-32 h-1 bg-gradient-to-r from-blue-500 via-red-500 to-yellow-500 mx-auto"></div>
             <p className="text-base sm:text-lg md:text-xl text-gray-700 mt-4">
@@ -525,13 +525,13 @@ const App = () => {
             </div>
           </div>
 
-          <div className="text-center">
+          {/* <div className="text-center">
             <div className="olympic-rings rounded-xl md:rounded-2xl p-6 md:p-8 text-white shadow-2xl">
               <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black">
                 FASTER • HIGHER • STRONGER • TOGETHER
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>
