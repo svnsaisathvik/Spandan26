@@ -293,7 +293,7 @@ export const sportsData = [
       'Proper sportswear required'
     ],
     teamSize: 'Individual',
-    spocDetails: 'Maadhav Patil : 9910093697',
+    spocDetails: 'Maadhav Patil : 9012252500',
     format: 'Points Based',
     registrations: [
       { label: 'Register Here', link: 'https://forms.gle/S8PYuDFbTEq4wS6p8' }
